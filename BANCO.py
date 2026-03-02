@@ -1,6 +1,8 @@
 #IMPORTAÇÕES:
 import time
 from datetime import datetime
+import random
+
 
 #apresentação:
 print('\33[34m--' * 8)
@@ -17,10 +19,27 @@ nome_usuario = str(input('Nome de usuário: ')).strip()
 time.sleep(0.3)
 
 #senha do usuario
-senha = ' '
-while len(senha) < 8:
-    senha = str(input('Digite sua senha (a senha deve conter no mínimo 8 caracteres.): ')).strip()
-    time.sleep(0.3)
+decisao = ' '
+while decisao not in 'SN':
+    decisao = str(input('Você quer uma senha automática [S/N]? ')).strip().upper()[0]
+    if decisao == 'S':
+        senha = ''
+        caracteres = 'f7@Kp9#Lm2!Qx8$VrT3'
+        for c in range(8):
+            aleatorio = random.choice(caracteres)
+            senha += aleatorio
+        print(f'Sua senha: {senha}')
+    
+    elif decisao == 'N':
+        senha = ' '
+        while len(senha) < 8:
+            senha = str(input('Digite sua senha (a senha deve conter no mínimo 8 caracteres.): ')).strip()
+            time.sleep(0.3)
+    
+    else:
+        print('Decisão inválida. Tente novamente.')
+            
+
 
 #idade usuario/verificar idade
 data_nascimento = str(input('Qual sua data de nascimento (dd-mm-aaaa)? ')).strip()
