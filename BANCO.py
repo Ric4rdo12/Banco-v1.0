@@ -37,7 +37,7 @@ while decisao not in 'SN':
             time.sleep(0.3)
     
     else:
-        print('Decisão inválida. Tente novamente.')
+        print('\33[33mDecisão inválida. Tente novamente.\33[m')
             
 
 
@@ -134,7 +134,7 @@ while True:
             print()
     
     #se escolher 2 (depositar)
-    if opcao_menu == 2:
+    elif opcao_menu == 2:
         print()
         print('\33[33mDEPOSITAR DINHEIRO\33[m')
         quanto_depositar = float(input(f'Quanto você quer depositar? Seu saldo atual é de R${saldo:.2f}: '))
@@ -148,14 +148,14 @@ while True:
             print()
             
     #se escolher 3 (ver saldo)
-    if opcao_menu == 3:
+    elif opcao_menu == 3:
         print()
         print('\33[33mSALDO\33[m')
         print(f'\33[34mSeu saldo: R${saldo:.2f}\33[m')
         print()
     
     #se escolher 4 (comprar algo)
-    if opcao_menu == 4:
+    elif opcao_menu == 4:
         print()
         print('\33[33mCOMPRAR ALGO\33[m')
         print(f'\33[34mSeu saldo: {saldo:.2f}\33[m')
@@ -212,6 +212,9 @@ while True:
             print()
     
     #se escolher 5 (sair)
-    if opcao_menu == 5:
+    elif opcao_menu == 5:
         print('\33[34mSaindo da conta...\33[m')
         break
+    
+    else:
+        print('\33[31mValor inválido! Tente novamente\33[m')
