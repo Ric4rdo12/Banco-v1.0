@@ -2,6 +2,7 @@
 import time
 from datetime import datetime
 import random
+import os
 
 
 #apresentação:
@@ -12,11 +13,13 @@ print('--' * 8)
 
 #CADASTRO:
 print('\33[33mPara utilizar o Banco do Ricardo, faça seu cadastro primeiro (apenas para pessoas acima de 18 anos).\33[m')
-time.sleep(0.3)
+time.sleep(2.7)
+os.system('cls')
 
 #nome de usuario
 nome_usuario = str(input('Nome de usuário: ')).strip()
 time.sleep(0.3)
+
 
 #senha do usuario
 decisao = ' '
@@ -103,6 +106,7 @@ while True:
         
 
 #MENU OPÇÕES
+os.system('cls')
 print()
 print('\33[32m--' * 6)
 print('MENU OPÇÕES:')
@@ -121,15 +125,18 @@ while True:
         print('\33[33mSACAR DINHEIRO\33[m')
         quanto_sacar = float(input(f'Quanto você quer sacar? Você tem R${saldo:.2f}: '))
         if quanto_sacar > saldo:
+            os.system('cls')
             print('\33[31mVocê não pode sacar mais do que tem!\33[m')
             print()
             
         elif quanto_sacar <= 0:
+            os.system('cls')
             print('\33[31mValor inválido! Digite um valor positivo maior que zero.\33[m')
             print()
             
         else:
             saldo -= quanto_sacar
+            os.system('cls')
             print(f'\33[33mVocê sacou R${quanto_sacar:.2f} e seu saldo agora é de R${saldo:.2f}\33[m')
             print()
     
@@ -140,16 +147,19 @@ while True:
         quanto_depositar = float(input(f'Quanto você quer depositar? Seu saldo atual é de R${saldo:.2f}: '))
         
         if quanto_depositar <= 0:
+            os.system('cls')
             print('\33[31mValor inválido! Digite um valor positivo maior que zero.\33[m')
             print()
         else:
             saldo += quanto_depositar
+            os.system('cls')
             print(f'\33[33mVocê depositou R${quanto_depositar:.2f} e seu saldo agora é de R${saldo:.2f}\33[m')
             print()
             
     #se escolher 3 (ver saldo)
     elif opcao_menu == 3:
         print()
+        os.system('cls')
         print('\33[33mSALDO\33[m')
         print(f'\33[34mSeu saldo: R${saldo:.2f}\33[m')
         print()
@@ -165,6 +175,7 @@ while True:
         valor_quantidade = int(input('Quantidade do produto: '))
         
         if valor_unitario <= 0 or valor_quantidade <= 0:
+            os.system('cls')
             print('\33[33mValor inválido. A quantidade ou o preço do produto devem ser maior que zero.\33[m')
             print()
             continue
@@ -182,25 +193,30 @@ while True:
                 if resposta ==  'S':
                     novo_valor_quantidade = int(input('Nova quantidade do(s) produto(s): '))
                     if novo_valor_quantidade <= 0:
+                        os.system('cls')
                         print('\33[33mValor inválido. A quantidade ou o preço do produto deve ser maior que zero.\33[m')
                         continue
                     elif novo_valor_quantidade >= valor_quantidade:
+                        os.system('cls')
                         print('\33[31mValor inválido. A quantidade informada não pode ser maior ou igual à quantidade original.\33[m')
                         print()
                         continue
                     
                     novo_valor_total = valor_unitario * novo_valor_quantidade
                     if saldo < novo_valor_total:
+                        os.system('cls')
                         print('\33[31mInfelizmente você não pode efetuar essa compra.\33[m')
                         print()
                         break
                     else:
                         saldo -= novo_valor_total
+                        os.system('cls')
                         print(f'\33[32mCompra realizada com sucesso! Sua compra foi de R${novo_valor_total:.2f} e seu saldo agora é de R${saldo:.2f}\33[m')
                         print()
                         break 
                 
                 else:
+                    os.system('cls')
                     print('\33[33mCompra cancelada.\33[m')
                     print()
                     break
@@ -208,6 +224,7 @@ while True:
         
         else:
             saldo -= valor_total
+            os.system('cls')
             print(f'\33[32mCompra realizada com sucesso! Sua compra foi de R${valor_total:.2f} e seu saldo agora é de R${saldo:.2f}\33[m')
             print()
     
@@ -217,4 +234,5 @@ while True:
         break
     
     else:
+        os.system('cls')
         print('\33[31mValor inválido! Tente novamente\33[m')
